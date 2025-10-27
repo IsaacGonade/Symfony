@@ -10,9 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CalculatorController extends Controller
 {
-    public function indexAction($age)
-    {
+    public function indexAction($age){
         $currentYear = date('Y');
-        return new Response('<html><body>Año actual: ' . $currentYear . '<br/>Año de nacimiento: ' . ($currentYear - $age) . '</body></html>');
+        $year = $currentYear - $age;
+        return $this->render('calculator/index.html.twig', array('year' => $year));
     }
 }
